@@ -22,15 +22,25 @@
                 <div class="div-cell"> Saldo </div>
 
             </div>
-            <div class="div-row" id="year-2017">
-                <div class="div-cell"> 2017 </div>
+            <div class="div-row year" id="year-2017">
+                <div class="div-cell"> 2017 <button class="show-hide">+</button></div>
                 <div class="div-cell"> 0,00 </div>
                 <div class="div-cell"> 0,00 </div>
                 <div class="div-cell"> 0,00 </div>
                 <div class="div-cell"> 0,00 </div>
                 <div class="div-cell"> 0,00 </div>
-
             </div>
+            <div class="month">
+                <div class="div-row month-01">
+                    <div class="div-cell"> styczeń </div>
+                    <div class="div-cell"> 0,00 </div>
+                    <div class="div-cell"> 0,00 </div>
+                    <div class="div-cell"> 0,00 </div>
+                    <div class="div-cell"> 0,00 </div>
+                    <div class="div-cell"> 0,00 </div>
+                </div>
+            </div>
+
             </table>
         </div>
 
@@ -41,27 +51,16 @@
         <form class="incomeForm">
             <fieldset>
                 <legend>Dochód</legend>
-                <select name="select" class="yearSettlement">
-                    <option value="choose-year" disabled selected>Wybierz rok</option> 
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                </select>
-                <select name="month" class="monthSettlement">
-                    <option value="choose-month" disabled selected>Wybierz miesiąc</option> 
-                    <option value="01">styczeń</option>
-                    <option value="02">luty</option>
-                    <option value="03">marzec</option>
-                    <option value="04">kwiecień</option>
-                    <option value="05">maj</option>
-                    <option value="06">czerwiec</option>
-                    <option value="01">lipiec</option>
-                    <option value="02">sierpień</option>
-                    <option value="03">wrzesień</option>
-                    <option value="04">październik</option>
-                    <option value="05">listopad</option>
-                    <option value="06">grudzień</option>
-                </select>
-                <input type="number" name="rent" id="income" value="0.00">
+                <div class="field-wrapper">
+                    <label for="year">Podaj rok:</label>
+                    <input type="number" name="year" class="year">
+                    <label for="month">Podaj miesiąc:</label>
+                    <input type="number" name="year" class="month">
+                    <label for="income">Podaj dochód:</label>
+                    <input type="number" name="year" id="income">
+                    <span>Dodaj dochód do wszystkich miesięcy</span>
+                    <input type="checkbox">
+                </div>
                 <input type="submit" id="incomeSubmit" value="Dodaj">
             </fieldset>
         </form>
@@ -69,11 +68,12 @@
         <form class="regularExpence">
             <fieldset>
                 <legend>Wydatki stałe (comiesięczne)</legend>
-                <select name="select" class="yearSettlement">
-                <option value="choose-year" disabled selected>Wybierz rok</option> 
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                </select>
+                <div class="field-wrapper">
+                    <label for="year">Podaj rok:</label>
+                    <input type="number" name="year" class="year">
+                    <label for="month">Podaj miesiąc:</label>
+                    <input type="number" name="year" class="month">
+                </div>
                 <div class="field-wrapper">
                     <label for="rent"> Czynsz:</label>
                     <input type="number" name="rent" id="rent" value="0.00">
@@ -100,10 +100,10 @@
                     <button class="removeExpence">Usuń wydatek</button>
                 </div>
                 <div class="field-wrapper">
-                <span>Dodaj kolejny wydatek</span>
-                <br>
-                <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                <button class="addExpence">Dodaj wydatek</button>
+                    <span>Dodaj kolejny wydatek</span>
+                    <br>
+                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                    <button class="addExpence">Dodaj wydatek</button>
                 </div>
                 <input type="submit" id="regularSubmit" value="Dodaj">
             </fieldset>
@@ -133,29 +133,29 @@
                 <option value="06">grudzień</option>
             </select>
                 <div class="field-wrapper">
-                <label for="food"> Jedzenie:</label>
-                <input type="number" name="food" id="food" value="0.00">
-                <button class="removeExpence">Usuń wydatek</button>
+                    <label for="food"> Jedzenie:</label>
+                    <input type="number" name="food" id="food" value="0.00">
+                    <button class="removeExpence">Usuń wydatek</button>
                 </div>
                 <div class="field-wrapper">
-                <label for="clothes">Ubranie:</label>
-                <input type="number" name="clothes" id="clothes" value="0.00">
-                <button class="removeExpence">Usuń wydatek</button>
+                    <label for="clothes">Ubranie:</label>
+                    <input type="number" name="clothes" id="clothes" value="0.00">
+                    <button class="removeExpence">Usuń wydatek</button>
                 </div>
                 <div class="field-wrapper">
-                <label for="cosmetics">Kosmetyki:</label>
-                <input type="number" name="cosmetics" id="cosmetics" value="0.00">
-                <button class="removeExpence">Usuń wydatek</button>
+                    <label for="cosmetics">Kosmetyki:</label>
+                    <input type="number" name="cosmetics" id="cosmetics" value="0.00">
+                    <button class="removeExpence">Usuń wydatek</button>
                 </div>
                 <div class="field-wrapper">
-                <label for="chemistry">Środki chemiczne:</label>
-                <input type="number" name="chemistry" id="chemistry" value="0.00">
-                <button class="removeExpence">Usuń wydatek</button>
+                    <label for="chemistry">Środki chemiczne:</label>
+                    <input type="number" name="chemistry" id="chemistry" value="0.00">
+                    <button class="removeExpence">Usuń wydatek</button>
                 </div>
                 <div class="field-wrapper">
-                <span>Dodaj kolejny wydatek</span>
-                <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                <button class="addExpence">Dodaj wydatek</button>
+                    <span>Dodaj kolejny wydatek</span>
+                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                    <button class="addExpence">Dodaj wydatek</button>
                 </div>
                 <input type="submit" id="variantSubmit" value="Dodaj">
             </fieldset>

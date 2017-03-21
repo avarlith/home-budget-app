@@ -17,7 +17,7 @@ $(function () {
     var regularSubmit = $('#regularSubmit');
     
     var regularExpence = 0;
-
+    var variantExpence = 0;
 
     var variantSubmit = $('#variantSubmit');
 
@@ -83,10 +83,10 @@ $(function () {
         var rest = parseFloat(dataOfYear.eq(4).text()) - sumOfExpence;
 
         if (rest > 0) {
-            dataOfYear.eq(5).text('+' + sumOfExpence);
+            dataOfYear.eq(5).text('+' + rest);
             dataOfYear.eq(5).addClass('savings');
         } else {
-            dataOfYear.eq(5).text('-' + sumOfExpence);
+            dataOfYear.eq(5).text(rest);
             dataOfYear.eq(5).addClass('debit');
         }
     });
