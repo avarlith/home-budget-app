@@ -12,67 +12,106 @@
 <body>
 
     <div class="tabular-result">
-        <table>
-            <tr>
-                <th> Rok </th>
-                <th> Wydatki stałe </th>
-                <th> Wydatki zmienne </th>
-                <th> Łącznie </th>
-                <th> Dochód </th>
-                <th> Straty </th>
-                <th> Oszczędności </th>
-            </tr>
-        </table>
-    </div>
+        <div class="div-table">
+            <div class="div-row header">
+                <div class="div-cell"> Rok </div>
+                <div class="div-cell"> Wydatki stałe </div>
+                <div class="div-cell"> Wydatki zmienne </div>
+                <div class="div-cell"> Łącznie </div>
+                <div class="div-cell"> Dochód </div>
+                <div class="div-cell"> Straty </div>
+                <div class="div-cell"> Oszczędności </div>
+            </div>
+            <div class="div-row" id="year-2017">
+                <div class="div-cell"> 2017 </div>
+                <div class="div-cell"> 0,00 </div>
+                <div class="div-cell"> 0,00 </div>
+                <div class="div-cell"> 0,00 </div>
+                <div class="div-cell"> 0,00 </div>
+                <div class="div-cell"> 0,00 </div>
+                <div class="div-cell"> 0,00 </div>
+            </div>
+            </table>
+        </div>
 
-    <div class="visual-result">
-        <div class="panel"></div>
-    </div>
-    <form class="statementExpence">
-        <fieldset>
-            <legend>Wydatki stałe (comiesięczne)</legend>
-            <select name="select">
+        <div class="visual-result">
+            <div class="panel"></div>
+        </div>
+
+        <form class="incomeForm">
+            <fieldset>
+                <legend>Dochód</legend>
+                <select name="select" class="yearSettlement">
+                    <option value="choose-year" disabled selected>Wybierz rok</option> 
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                </select>
+                <select name="month" class="monthSettlement">
+                    <option value="choose-month" disabled selected>Wybierz miesiąc</option> 
+                    <option value="01">styczeń</option>
+                    <option value="02">luty</option>
+                    <option value="03">marzec</option>
+                    <option value="04">kwiecień</option>
+                    <option value="05">maj</option>
+                    <option value="06">czerwiec</option>
+                    <option value="01">lipiec</option>
+                    <option value="02">sierpień</option>
+                    <option value="03">wrzesień</option>
+                    <option value="04">październik</option>
+                    <option value="05">listopad</option>
+                    <option value="06">grudzień</option>
+                </select>
+                <input type="number" name="rent" id="income" placeholder="Podaj kwotę">
+                <input type="submit" id="incomeSubmit" value="Dodaj">
+            </fieldset>
+        </form>
+
+        <form class="regularExpence">
+            <fieldset>
+                <legend>Wydatki stałe (comiesięczne)</legend>
+                <select name="select" class="yearSettlement">
                 <option value="choose-year" disabled selected>Wybierz rok</option> 
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
             </select>
-            <label for="rent"> Czynsz:</label>
-            <input type="number" name="rent" id="rent" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="rent">Prąd</label>
-            <input type="number" name="current" id="current" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="rent">Gaz</label>
-            <input type="number" name="gas" id="gas" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="rent">Telefon</label>
-            <input type="number" name="phone" id="phone" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="rent">Internet</label>
-            <input type="number" name="internet" id="internet" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <span>Dodaj kolejny wydatek</span>
-            <br>
-            <input type="text" name "newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-            <button class="addExpence">Dodaj wydatek</button>
-            <br>
-            <input type="submit" value="Podlicz">
-        </fieldset>
-    </form>
-    <form class="floatExpence">
-        <fieldset>
-            <legend>Wydatki zmienne</legend>
-            <select name="year">
+                <label for="rent"> Czynsz:</label>
+                <input type="number" name="rent" id="rent" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="rent">Prąd</label>
+                <input type="number" name="current" id="current" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="rent">Gaz</label>
+                <input type="number" name="gas" id="gas" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="rent">Telefon</label>
+                <input type="number" name="phone" id="phone" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="rent">Internet</label>
+                <input type="number" name="internet" id="internet" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <span>Dodaj kolejny wydatek</span>
+                <br>
+                <input type="text" name "newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                <button class="addExpence">Dodaj wydatek</button>
+                <br>
+                <input type="submit" id="regularSubmit" value="Dodaj">
+            </fieldset>
+        </form>
+
+        <form class="variantExpence">
+            <fieldset>
+                <legend>Wydatki zmienne</legend>
+                <select name="year" class="yearSettlement">
                 <option value="choose-year" disabled selected>Wybierz rok</option> 
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
             </select>
-            <select name="month">
+                <select name="month" class="monthSettlement">
                 <option value="choose-month" disabled selected>Wybierz miesiąc</option> 
                 <option value="01">styczeń</option>
                 <option value="02">luty</option>
@@ -87,30 +126,32 @@
                 <option value="05">listopad</option>
                 <option value="06">grudzień</option>
             </select>
-            <label for="food"> Jedzenie:</label>
-            <input type="number" name="food" id="food" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="clothes">Ubranie:</label>
-            <input type="number" name="clothes" id="clothes" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="cosmetics">Kosmetyki:</label>
-            <input type="number" name="cosmetics" id="cosmetics" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <label for="chemistry">Środki chemiczne:</label>
-            <input type="number" name="chemistry" id="chemistry" placeholder="Podaj kwotę">
-            <button class="removeExpence">Usuń wydatek</button>
-            <br>
-            <span>Dodaj kolejny wydatek</span>
-            <br>
-            <input type="text" name "newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-            <button class="addExpence">Dodaj wydatek</button>
-            <br>
-            <input type="submit" value="Podlicz">
-        </fieldset>
-    </form>
+                <label for="food"> Jedzenie:</label>
+                <input type="number" name="food" id="food" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="clothes">Ubranie:</label>
+                <input type="number" name="clothes" id="clothes" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="cosmetics">Kosmetyki:</label>
+                <input type="number" name="cosmetics" id="cosmetics" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <label for="chemistry">Środki chemiczne:</label>
+                <input type="number" name="chemistry" id="chemistry" placeholder="Podaj kwotę">
+                <button class="removeExpence">Usuń wydatek</button>
+                <br>
+                <span>Dodaj kolejny wydatek</span>
+                <br>
+                <input type="text" name "newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                <button class="addExpence">Dodaj wydatek</button>
+                <br>
+                <input type="submit" id="variantSubmit" value="Dodaj">
+            </fieldset>
+        </form>
+
+        <button id="count">Podlicz</button>
 </body>
 
 </html>
