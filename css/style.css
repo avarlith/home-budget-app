@@ -8,5 +8,13 @@
 
 .div-cell {
     display: table-cell;
-    width: 50px;
+    width: 75px;
+}
+
+.savings {
+    background-color: lightgreen;
+}
+
+.debit {
+    background-color: indianred;
 }
