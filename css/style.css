@@ -19,3 +19,6 @@
     background-color: indianred;
 }
 
+.notDisplay {
+    display: none;
+}

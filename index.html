@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
 
 <head>
     <meta charset="UTF-8">
@@ -10,17 +10,25 @@
 </head>
 
 <body>
-
+    <div class='notDisplay'>
+        <div class="div-row month">
+            <div class="div-cell"></div>
+            <div class="div-cell"></div>
+            <div class="div-cell"></div>
+            <div class="div-cell"></div>
+            <div class="div-cell"></div>
+            <div class="div-cell"></div>
+        </div>
+    </div>
     <div class="tabular-result">
         <div class="div-table">
             <div class="div-row header">
-                <div class="div-cell"> Rok </div>
+                <div class="div-cell"> Rok / miesiąc</div>
                 <div class="div-cell"> Wydatki stałe </div>
                 <div class="div-cell"> Wydatki zmienne </div>
                 <div class="div-cell"> Łącznie </div>
                 <div class="div-cell"> Dochód </div>
                 <div class="div-cell"> Saldo </div>
-
             </div>
             <div class="div-row year" id="year-2017">
                 <div class="div-cell"> 2017 <button class="show-hide">+</button></div>
@@ -30,16 +38,6 @@
                 <div class="div-cell"> 0,00 </div>
                 <div class="div-cell"> 0,00 </div>
             </div>
-            <div class="month">
-                <div class="div-row month-01">
-                    <div class="div-cell"> styczeń </div>
-                    <div class="div-cell"> 0,00 </div>
-                    <div class="div-cell"> 0,00 </div>
-                    <div class="div-cell"> 0,00 </div>
-                    <div class="div-cell"> 0,00 </div>
-                    <div class="div-cell"> 0,00 </div>
-                </div>
-            </div>
 
             </table>
         </div>
@@ -48,18 +46,21 @@
             <div class="panel"></div>
         </div>
 
+        <form class="create-new-row">
+            <span>Utwórz podsumowanie miesięczne</span>
+            <button id="create-new-row">Utwórz</button>
+        </form>
+
         <form class="incomeForm">
             <fieldset>
                 <legend>Dochód</legend>
                 <div class="field-wrapper">
                     <label for="year">Podaj rok:</label>
-                    <input type="number" name="year" class="year">
+                    <input type="text" name="year" class="year">
                     <label for="month">Podaj miesiąc:</label>
-                    <input type="number" name="year" class="month">
+                    <input type="text" name="month" class="month">
                     <label for="income">Podaj dochód:</label>
-                    <input type="number" name="year" id="income">
-                    <span>Dodaj dochód do wszystkich miesięcy</span>
-                    <input type="checkbox">
+                    <input type="number" name="income" id="income">
                 </div>
                 <input type="submit" id="incomeSubmit" value="Dodaj">
             </fieldset>
@@ -70,9 +71,9 @@
                 <legend>Wydatki stałe (comiesięczne)</legend>
                 <div class="field-wrapper">
                     <label for="year">Podaj rok:</label>
-                    <input type="number" name="year" class="year">
+                    <input type="text" name="year" class="year">
                     <label for="month">Podaj miesiąc:</label>
-                    <input type="number" name="year" class="month">
+                    <input type="text" name="month" class="month">
                 </div>
                 <div class="field-wrapper">
                     <label for="rent"> Czynsz:</label>
@@ -112,26 +113,12 @@
         <form class="variantExpence">
             <fieldset>
                 <legend>Wydatki zmienne</legend>
-                <select name="year" class="yearSettlement">
-                <option value="choose-year" disabled selected>Wybierz rok</option> 
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                </select>
-                <select name="month" class="monthSettlement">
-                <option value="choose-month" disabled selected>Wybierz miesiąc</option> 
-                <option value="01">styczeń</option>
-                <option value="02">luty</option>
-                <option value="03">marzec</option>
-                <option value="04">kwiecień</option>
-                <option value="05">maj</option>
-                <option value="06">czerwiec</option>
-                <option value="01">lipiec</option>
-                <option value="02">sierpień</option>
-                <option value="03">wrzesień</option>
-                <option value="04">październik</option>
-                <option value="05">listopad</option>
-                <option value="06">grudzień</option>
-            </select>
+                <div class="field-wrapper">
+                    <label for="year">Podaj rok:</label>
+                    <input type="text" name="year" class="year">
+                    <label for="month">Podaj miesiąc:</label>
+                    <input type="text" name="month" class="month">
+                </div>
                 <div class="field-wrapper">
                     <label for="food"> Jedzenie:</label>
                     <input type="number" name="food" id="food" value="0.00">
