@@ -39,116 +39,117 @@
                 <div class="div-cell"> 0,00 </div>
             </div>
 
-            </table>
         </div>
+    </div>
 
-        <div class="visual-result">
-            <div class="panel"></div>
-        </div>
+    <div class="visual-result">
+        <div class="panel"></div>
+    </div>
 
-        <form class="create-new-row">
-            <span>Utwórz podsumowanie miesięczne</span>
-            <button id="create-new-row">Utwórz</button>
-        </form>
+    <form class="create-new-row">
+        <label>Utwórz podsumowanie miesięczne</label>
+        <input type="text" name="month" placeholder="podaj w formacie mm">
+        <button id="create-new-row">Utwórz</button>
+    </form>
 
-        <form class="incomeForm">
-            <fieldset>
-                <legend>Dochód</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                    <label for="income">Podaj dochód:</label>
-                    <input type="number" name="income" id="income">
-                </div>
-                <input type="submit" id="incomeSubmit" value="Dodaj">
-            </fieldset>
-        </form>
+    <form class="incomeForm">
+        <fieldset>
+            <legend>Dochód</legend>
+            <div class="field-wrapper">
+                <label for="year">Podaj rok:</label>
+                <input type="text" name="year" class="year">
+                <label for="month">Podaj miesiąc:</label>
+                <input type="text" name="month" class="month">
+                <label for="income">Podaj dochód:</label>
+                <input type="number" name="income" id="income">
+            </div>
+            <input type="submit" id="incomeSubmit" value="Dodaj">
+        </fieldset>
+    </form>
 
-        <form class="regularExpence">
-            <fieldset>
-                <legend>Wydatki stałe (comiesięczne)</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent"> Czynsz:</label>
-                    <input type="number" name="rent" id="rent" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Prąd</label>
-                    <input type="number" name="current" id="current" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Gaz</label>
-                    <input type="number" name="gas" id="gas" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Telefon</label>
-                    <input type="number" name="phone" id="phone" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Internet</label>
-                    <input type="number" name="internet" id="internet" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <span>Dodaj kolejny wydatek</span>
-                    <br>
-                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                    <button class="addExpence">Dodaj wydatek</button>
-                </div>
-                <input type="submit" id="regularSubmit" value="Dodaj">
-            </fieldset>
-        </form>
+    <form class="regularExpence">
+        <fieldset>
+            <legend>Wydatki stałe (comiesięczne)</legend>
+            <div class="field-wrapper">
+                <label for="year">Podaj rok:</label>
+                <input type="text" name="year" class="year">
+                <label for="month">Podaj miesiąc:</label>
+                <input type="text" name="month" class="month">
+            </div>
+            <div class="field-wrapper">
+                <label for="rent"> Czynsz:</label>
+                <input type="number" name="rent" id="rent" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="rent">Prąd</label>
+                <input type="number" name="current" id="current" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="rent">Gaz</label>
+                <input type="number" name="gas" id="gas" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="rent">Telefon</label>
+                <input type="number" name="phone" id="phone" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="rent">Internet</label>
+                <input type="number" name="internet" id="internet" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <span>Dodaj kolejny wydatek</span>
+                <br>
+                <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                <button class="addExpence">Dodaj wydatek</button>
+            </div>
+            <input type="submit" id="regularSubmit" value="Dodaj">
+        </fieldset>
+    </form>
 
-        <form class="variantExpence">
-            <fieldset>
-                <legend>Wydatki zmienne</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                </div>
-                <div class="field-wrapper">
-                    <label for="food"> Jedzenie:</label>
-                    <input type="number" name="food" id="food" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="clothes">Ubranie:</label>
-                    <input type="number" name="clothes" id="clothes" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="cosmetics">Kosmetyki:</label>
-                    <input type="number" name="cosmetics" id="cosmetics" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="chemistry">Środki chemiczne:</label>
-                    <input type="number" name="chemistry" id="chemistry" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <span>Dodaj kolejny wydatek</span>
-                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                    <button class="addExpence">Dodaj wydatek</button>
-                </div>
-                <input type="submit" id="variantSubmit" value="Dodaj">
-            </fieldset>
-        </form>
+    <form class="variantExpence">
+        <fieldset>
+            <legend>Wydatki zmienne</legend>
+            <div class="field-wrapper">
+                <label for="year">Podaj rok:</label>
+                <input type="text" name="year" class="year">
+                <label for="month">Podaj miesiąc:</label>
+                <input type="text" name="month" class="month">
+            </div>
+            <div class="field-wrapper">
+                <label for="food"> Jedzenie:</label>
+                <input type="number" name="food" id="food" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="clothes">Ubranie:</label>
+                <input type="number" name="clothes" id="clothes" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="cosmetics">Kosmetyki:</label>
+                <input type="number" name="cosmetics" id="cosmetics" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <label for="chemistry">Środki chemiczne:</label>
+                <input type="number" name="chemistry" id="chemistry" value="0.00">
+                <button class="removeExpence">Usuń wydatek</button>
+            </div>
+            <div class="field-wrapper">
+                <span>Dodaj kolejny wydatek</span>
+                <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
+                <button class="addExpence">Dodaj wydatek</button>
+            </div>
+            <input type="submit" id="variantSubmit" value="Dodaj">
+        </fieldset>
+    </form>
 
-        <button id="count">Podlicz</button>
+    <button id="count">Podlicz</button>
 </body>
 
 </html>

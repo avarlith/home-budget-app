@@ -12,6 +12,7 @@ $(function () {
     var internetCost = $('#internet');
     var regularCosts = 0;
     var regularExpence = 0;
+    var summaryRegularExpence = 0;
 
     var foodCost = $('#food');
     var clothesCost = $('#clothes');
@@ -19,6 +20,7 @@ $(function () {
     var chemistryCost = $('#chemistry');
     var variantCosts = 0;
     var variantExpence = 0;
+    var summaryVariantExpence = 0;
 
     var incomeSubmit = $('#incomeSubmit');
     var regularSubmit = $('#regularSubmit');
@@ -27,11 +29,15 @@ $(function () {
     var addBtns = $('.addExpence');
     var countBtn = $('#count');
 
-
+    var dataOfMonth = 0;
     var dataOfYear = $('#year-2017').find('div');
 
-    createNewRowBtn.on('click', function(){
-        $('.notDisplay').find('.month').clone().appendTo('.div-table');
+    createNewRowBtn.on('click', function (event) {
+        event.preventDefault();
+        var newRow = $('.notDisplay').find('.month').clone(true).addClass('m' + $(this).prev().val()).appendTo('.div-table');
+
+        newRow.find('.div-cell').eq(0).text($(this).prev().val());
+
     });
 
     addBtns.eq(0).on('click', function (event) {
@@ -74,6 +80,9 @@ $(function () {
         event.preventDefault();
         arrays.push($('form[class="incomeForm"]').serializeArray());
 
+        dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+
+        dataOfMonth.eq(4).text(parseFloat(income.val()));
         dataOfYear.eq(4).text(parseFloat(income.val()));
     });
 
@@ -87,7 +96,16 @@ $(function () {
             regularExpence += parseFloat($(this).val());
         })
 
-        dataOfYear.eq(1).text(regularExpence);
+        summaryRegularExpence += regularExpence;
+
+        regularCosts.each(function () {
+            $(this).val('0.00');
+        });
+
+        dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        dataOfMonth.eq(1).text(regularExpence);
+        dataOfYear.eq(1).text(summaryRegularExpence);
+        regularCosts = 0;
     });
 
     variantSubmit.on('click', function (event) {
@@ -100,26 +118,35 @@ $(function () {
             variantExpence += parseFloat($(this).val());
         })
 
-        dataOfYear.eq(2).text(variantExpence);
+        summaryVariantExpence += variantExpence;
+
+        variantCosts.each(function () {
+            $(this).val('0.00');
+        });
+
+        dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        dataOfMonth.eq(2).text(variantExpence);
+        dataOfYear.eq(2).text(summaryVariantExpence);
+        variantExpence = 0;
     });
 
     countBtn.on('click', function (event) {
         event.preventDefault();
-        createMonthSummary();
-        var newSummaryCells = $('.month').find('.div-cell');
 
-        var sumOfExpence = parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text());
+        dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
 
-        newSummaryCells.eq(3).text(sumOfExpence);
+        var sumOfExpence = parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text());
 
-        var rest = parseFloat(dataOfYear.eq(4).text()) - sumOfExpence;
+        dataOfMonth.eq(3).text(sumOfExpence);
+
+        var rest = parseFloat(dataOfMonth.eq(4).text()) - sumOfExpence;
 
         if (rest > 0) {
-            dataOfYear.eq(5).text('+' + rest);
-            dataOfYear.eq(5).addClass('savings');
+            dataOfMonth.eq(5).text('+' + rest);
+            dataOfMonth.eq(5).addClass('savings');
         } else {
-            dataOfYear.eq(5).text(rest);
-            dataOfYear.eq(5).addClass('debit');
+            dataOfMonth.eq(5).text(rest);
+            dataOfMonth.eq(5).addClass('debit');
         }
     });
 
