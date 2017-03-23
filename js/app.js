@@ -1,4 +1,5 @@
 $(function () {
+
     var counter = 0;
     var arrays = [];
     var namesArray = $('field-wrapper').find('input[name="text"');
@@ -23,21 +24,58 @@ $(function () {
     var variantExpence = 0;
     var summaryVariantExpence = 0;
 
+    var summarySumOfExpence = 0;
+
     var incomeSubmit = $('#incomeSubmit');
     var regularSubmit = $('#regularSubmit');
     var variantSubmit = $('#variantSubmit');
-    var createNewRowBtn = $('#create-new-row');
+    var createNewMonthBtn = $('#create-new-month');
+    var createNewYearBtn = $('#create-new-year');
     var addBtns = $('.addExpence');
     var countBtn = $('#count');
+    var searchBtn = $('#resultVisualization');
 
     var dataOfMonth = 0;
-    var dataOfYear = $('#year-2017').find('div');
+    var dataOfYear = 0;
 
-    createNewRowBtn.on('click', function (event) {
+    createNewYearBtn.on('click', function (event) {
+        event.preventDefault();
+        var newRow = $('.notDisplay').find('.year').clone(true).addClass('y' + $(this).prev().val()).appendTo('.div-table');
+
+        newRow.find('.div-cell').eq(0).text($(this).prev().val());
+
+    });
+
+    createNewMonthBtn.on('click', function (event) {
         event.preventDefault();
         var newRow = $('.notDisplay').find('.month').clone(true).addClass('m' + $(this).prev().val()).appendTo('.div-table');
 
         newRow.find('.div-cell').eq(0).text($(this).prev().val());
+
+    });
+
+    searchBtn.on('click', function (event) {
+        event.preventDefault();
+        var searchItem = $('#searchItem').val();
+        var findItem = [];
+        var sum = 0;
+
+        for (i = 0; i < arrays.length; i++) {
+            $.map(arrays[i], function (value, key) {
+                if (value.name == searchItem) {
+                    findItem.push(value.value);
+                }
+            });
+        }
+
+        $.map(findItem, function (n) {
+            sum += parseFloat(n);
+        });
+        console.log(sum);
+        var n = (parseFloat(sum)/parseFloat(summarySumOfExpence))*100;
+        console.log(n);
+        $('.visual').css("width", n+"%");
+
 
     });
 
@@ -79,9 +117,11 @@ $(function () {
 
     incomeSubmit.on('click', function (event) {
         event.preventDefault();
-        arrays.push($('form[class="incomeForm"]').serializeArray());
-
-        dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        var newObject = $('form[class="incomeForm"]').serializeArray();
+        arrays.push(newObject);
+        console.log(arrays);
+        dataOfMonth = $('.div-table').find('.div-row.month').last().find('.div-cell');
+        dataOfYear = $('.div-table').find('.div-row.year').last().find('.div-cell');
 
         summaryIncome += parseFloat(income.val());
 
@@ -91,8 +131,9 @@ $(function () {
 
     regularSubmit.on('click', function (event) {
         event.preventDefault();
-        arrays.push($('form[class="regularExpence"]').serializeArray());
-
+        var newObject = $('form[class="regularExpence"]').serializeArray();
+        arrays.push(newObject);
+        console.log(arrays);
         regularCosts = $('.regularExpence').find('input[type="number"]');
 
         regularCosts.each(function () {
@@ -106,9 +147,11 @@ $(function () {
         });
 
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        dataOfYear = $('.div-table').find('.div-row.year').last().find('.div-cell');
+
         dataOfMonth.eq(1).text(regularExpence);
         dataOfYear.eq(1).text(summaryRegularExpence);
-        regularCosts = 0;
+        regularExpence = 0;
     });
 
     variantSubmit.on('click', function (event) {
@@ -128,6 +171,8 @@ $(function () {
         });
 
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        dataOfYear = $('.div-table').find('.div-row.year').last().find('.div-cell');
+
         dataOfMonth.eq(2).text(variantExpence);
         dataOfYear.eq(2).text(summaryVariantExpence);
         variantExpence = 0;
@@ -137,9 +182,10 @@ $(function () {
         event.preventDefault();
 
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
+        dataOfYear = $('.div-table').find('.div-row.year').last().find('.div-cell');
 
         var sumOfExpence = parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text());
-        var summarySumOfExpence = parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text());
+        summarySumOfExpence = parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text());
 
         dataOfMonth.eq(3).text(sumOfExpence);
         dataOfYear.eq(3).text(summarySumOfExpence);
@@ -155,11 +201,11 @@ $(function () {
             dataOfMonth.eq(5).addClass('debit');
         }
 
-         if (summaryRest > 0) {
-            dataOfYear.eq(5).text('+' + rest);
+        if (summaryRest > 0) {
+            dataOfYear.eq(5).text('+' + summaryRest);
             dataOfYear.eq(5).addClass('savings');
         } else {
-            dataOfYear.eq(5).text(rest);
+            dataOfYear.eq(5).text(summaryRest);
             dataOfYear.eq(5).addClass('debit');
         }
     });

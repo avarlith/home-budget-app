@@ -1,3 +1,7 @@
+body {
+    background-color: lightgray;
+}
+
 .div-table {
     display: table;
 }
@@ -8,17 +12,28 @@
 
 .div-cell {
     display: table-cell;
-    width: 75px;
+    width: 16%;
 }
 
 .savings {
-    background-color: lightgreen;
+    background-color: lightseagreen;
 }
 
 .debit {
-    background-color: indianred;
+    background-color: mediumvioletred;
 }
 
 .notDisplay {
     display: none;
+}
+.panel {
+    width : 200px;
+    height: 40px;
+    background-color: gray;
+}
+
+.visual {
+    width: 0%;
+    height: 100%;
+    background-color: red;
 }
