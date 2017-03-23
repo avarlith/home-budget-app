@@ -4,6 +4,7 @@ $(function () {
     var namesArray = $('field-wrapper').find('input[name="text"');
 
     var income = $('#income');
+    var summaryIncome = 0;
 
     var rentCost = $('#rent');
     var currentCost = $('#current');
@@ -82,8 +83,10 @@ $(function () {
 
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
 
+        summaryIncome += parseFloat(income.val());
+
         dataOfMonth.eq(4).text(parseFloat(income.val()));
-        dataOfYear.eq(4).text(parseFloat(income.val()));
+        dataOfYear.eq(4).text(summaryIncome);
     });
 
     regularSubmit.on('click', function (event) {
@@ -136,10 +139,13 @@ $(function () {
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
 
         var sumOfExpence = parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text());
+        var summarySumOfExpence = parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text());
 
         dataOfMonth.eq(3).text(sumOfExpence);
+        dataOfYear.eq(3).text(summarySumOfExpence);
 
         var rest = parseFloat(dataOfMonth.eq(4).text()) - sumOfExpence;
+        var summaryRest = parseFloat(dataOfYear.eq(4).text()) - summarySumOfExpence;
 
         if (rest > 0) {
             dataOfMonth.eq(5).text('+' + rest);
@@ -147,6 +153,14 @@ $(function () {
         } else {
             dataOfMonth.eq(5).text(rest);
             dataOfMonth.eq(5).addClass('debit');
+        }
+
+         if (summaryRest > 0) {
+            dataOfYear.eq(5).text('+' + rest);
+            dataOfYear.eq(5).addClass('savings');
+        } else {
+            dataOfYear.eq(5).text(rest);
+            dataOfYear.eq(5).addClass('debit');
         }
     });
 
