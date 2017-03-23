@@ -16,168 +16,300 @@
 
 <body>
     <div class='notDisplay'>
-        <div class="div-row month">
-            <div class="div-cell"></div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
+        <div class="row div-row month">
+            <div class="col div-cell edge"></div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
         </div>
-        <div class="div-row year">
-            <div class="div-cell"> <button class="show-hide">-</button></div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-            <div class="div-cell">0.00</div>
-        </div>
-    </div>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">mini budżet</h1>
-            <p class="lead">zaplanuj swoje wydatki</p>
+        <div class="row div-row year">
+            <div class="col div-cell edge"> <button class="show-hide">-</button></div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
+            <div class="col div-cell edge">0.00</div>
         </div>
     </div>
+
+
     <div class="container">
         <div class="row">
-            <div class="col-12 tabular-result">
-                <div class="div-table notDisplay">
-                    <div class="div-row header">
-                        <div class="div-cell"> rok / miesiąc</div>
-                        <div class="div-cell"> wydatki stałe </div>
-                        <div class="div-cell"> wydatki zmienne </div>
-                        <div class="div-cell"> łącznie </div>
-                        <div class="div-cell"> dochód </div>
-                        <div class="div-cell"> saldo </div>
+            <div class="col-12 edge">
+                <h1 class="display-3">mini budżet</h1>
+                <p class="lead">zaplanuj swoje wydatki</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main">
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Utwórz podsumowanie roczne</a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="card-block">
+                            <div class="row">
+                                <form class="col-12 create-new-year-row edge">
+                                    <div class="row">
+                                        <label class="col">Utwórz podsumowanie roczne</label>
+                                        <input type="text" name="month" class="col edge">
+                                        <button id="create-new-year" class="col edge">Utwórz</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Utwórz posumowanie miesięczne</a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="card-block">
+                            <div class="row">
+                                <form class="col-12 create-new-month-row edge">
+                                    <div class="row">
+                                        <label class="col">Utwórz podsumowanie miesięczne</label>
+                                        <input type="text" name="month" class="col edge">
+                                        <button id="create-new-month" class="col edge">Utwórz</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingThree">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Podaj miesięczny dochód</a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+                            <div class="row">
+                                <form class="col-12 incomeForm edge">
+                                    <fieldset>
+                                        <legend>Dochód</legend>
+                                        <div class="row">
+                                            <label class="col" for="year">Podaj rok:</label>
+                                            <input type="text" name="year" class="col year">
+                                            <label class="col" for="month">Podaj miesiąc:</label>
+                                            <input type="text" name="month" class="col month">
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="income">Podaj dochód:</label>
+                                            <input type="number" name="income" id="income" class="col-3">
+                                        </div>
+                                        <div class="row">
+                                            <input type="submit" id="incomeSubmit" class="col-md-4 offset-md-4" value="Dodaj">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingFour">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Dodaj wydatki stałe</a>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+                            <div class="row">
+                                <form class="col-12 regularExpence edge">
+                                    <fieldset>
+                                        <legend>Wydatki stałe (comiesięczne)</legend>
+                                        <div class="row">
+                                            <label class="col-3" for="year">Podaj rok:</label>
+                                            <input type="text" name="year" class="col-8 year">
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="month">Podaj miesiąc:</label>
+                                            <input type="text" name="month" class="col-8 month">
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="rent"> Czynsz:</label>
+                                            <input type="number" name="rent" id="rent" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="rent">Prąd</label>
+                                            <input type="number" name="current" id="current" value="0.00" class="col-8">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="rent">Gaz</label>
+                                            <input type="number" name="gas" id="gas" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="rent">Telefon</label>
+                                            <input type="number" name="phone" id="phone" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="rent">Internet</label>
+                                            <input type="number" name="internet" id="internet" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-4">Dodaj kolejny wydatek</span>
+                                            <br>
+                                            <input type="text" name="newExpence" class="col-4">
+                                            <button class="col-4 addExpence">Dodaj wydatek</button>
+                                        </div>
+                                        <div class="row">
+                                            <input type="submit" class="col-md-4 offset-md-4" id="regularSubmit" value="Dodaj">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingFive">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Dodaj wydatki zmienne</a>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+                            <div class="row">
+                                <form class="col-12 variantExpence edge">
+                                    <fieldset>
+                                        <legend>Wydatki zmienne</legend>
+                                        <div class="row">
+                                            <label class="col-3" for="year">Podaj rok:</label>
+                                            <input type="text" name="year" class="col-8 year">
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="month">Podaj miesiąc:</label>
+                                            <input type="text" name="month" class="col-8 month">
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="food"> Jedzenie:</label>
+                                            <input type="number" name="food" id="food" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="clothes">Ubranie:</label>
+                                            <input type="number" name="clothes" id="clothes" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="cosmetics">Kosmetyki:</label>
+                                            <input type="number" name="cosmetics" id="cosmetics" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-3" for="chemistry">Środki chemiczne:</label>
+                                            <input type="number" name="chemistry" id="chemistry" class="col-8" value="0.00">
+                                            <button class="col-1 removeExpence">X</button>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-4">Dodaj kolejny wydatek</span>
+                                            <br>
+                                            <input type="text" name="newExpence" class="col-4">
+                                            <button class="col-4 addExpence">Dodaj wydatek</button>
+                                        </div>
+                                        <div class="row">
+                                            <input type="submit" class="col-md-4 offset-md-4" id="variantSubmit" value="Dodaj">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingSix">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Podlicz</a>
+                        </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+                            <div class="row">
+                                <button id="count" class="col-md-4 offset-md-4 edge">Podlicz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingSeven">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Zobacz rozliczenie</a>
+                        </h5>
+                    </div>
+                    <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+
+                            <div class="row">
+                                <div class="col-12 tabular-result edge">
+                                    <div class="div-table">
+                                        <div class="row div-row header">
+                                            <div class="col-2 div-cell edge"> rok / miesiąc</div>
+                                            <div class="col-2 div-cell edge"> wydatki stałe </div>
+                                            <div class="col-2 div-cell edge"> wydatki zmienne </div>
+                                            <div class="col-2 div-cell edge"> łącznie </div>
+                                            <div class="col-2 div-cell edge"> dochód </div>
+                                            <div class="col-2 div-cell edge"> saldo </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card main">
+                    <div class="card-header main" role="tab" id="headingEight">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Wizualna reprezentacja poszczególnych wydatków</a>
+                        </h5>
+                    </div>
+                    <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-12 visual-result edge">
+                                    Wizualna reprezentacja poszczególnych wydatków.
+                                    <label>Podaj rodzaj wydatku</label>
+                                    <input type="text" name="searchItem" id="searchItem">
+                                    <button id="resultVisualization">Wyświetl</button>
+                                    <div class="panel">
+                                        <div class="visual"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="visual-result notDisplay">
-                Wizualna reprezentacj poszczególnych wydatków.
-                <label>Podaj rodzaj wydatku</label>
-                <input type="text" name="searchItem" id="searchItem">
-                <button id="resultVisualization">Wyświetl</button>
-                <div class="panel">
-                    <div class="visual"></div>
-                </div>
-            </div>
-        </div>
-
-        <form class="create-new-year-row">
-            <label>Utwórz podsumowanie roczne</label>
-            <input type="text" name="month" placeholder="podaj w formacie yyyy">
-            <button id="create-new-year">Utwórz</button>
-        </form>
-
-
-        <form class="create-new-month-row notDisplay">
-            <label>Utwórz podsumowanie miesięczne</label>
-            <input type="text" name="month" placeholder="podaj w formacie mm">
-            <button id="create-new-month">Utwórz</button>
-        </form>
-
-        <form class="incomeForm notDisplay">
-            <fieldset>
-                <legend>Dochód</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                    <label for="income">Podaj dochód:</label>
-                    <input type="number" name="income" id="income">
-                </div>
-                <input type="submit" id="incomeSubmit" value="Dodaj">
-            </fieldset>
-        </form>
-
-        <form class="regularExpence notDisplay">
-            <fieldset>
-                <legend>Wydatki stałe (comiesięczne)</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent"> Czynsz:</label>
-                    <input type="number" name="rent" id="rent" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Prąd</label>
-                    <input type="number" name="current" id="current" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Gaz</label>
-                    <input type="number" name="gas" id="gas" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Telefon</label>
-                    <input type="number" name="phone" id="phone" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="rent">Internet</label>
-                    <input type="number" name="internet" id="internet" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <span>Dodaj kolejny wydatek</span>
-                    <br>
-                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                    <button class="addExpence">Dodaj wydatek</button>
-                </div>
-                <input type="submit" id="regularSubmit" value="Dodaj">
-            </fieldset>
-        </form>
-
-        <form class="variantExpence notDisplay">
-            <fieldset>
-                <legend>Wydatki zmienne</legend>
-                <div class="field-wrapper">
-                    <label for="year">Podaj rok:</label>
-                    <input type="text" name="year" class="year">
-                    <label for="month">Podaj miesiąc:</label>
-                    <input type="text" name="month" class="month">
-                </div>
-                <div class="field-wrapper">
-                    <label for="food"> Jedzenie:</label>
-                    <input type="number" name="food" id="food" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="clothes">Ubranie:</label>
-                    <input type="number" name="clothes" id="clothes" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="cosmetics">Kosmetyki:</label>
-                    <input type="number" name="cosmetics" id="cosmetics" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <label for="chemistry">Środki chemiczne:</label>
-                    <input type="number" name="chemistry" id="chemistry" value="0.00">
-                    <button class="removeExpence">Usuń wydatek</button>
-                </div>
-                <div class="field-wrapper">
-                    <span>Dodaj kolejny wydatek</span>
-                    <input type="text" name="newExpence" placeholder="Podaj nazwę kolejnego wydatku">
-                    <button class="addExpence">Dodaj wydatek</button>
-                </div>
-                <input type="submit" id="variantSubmit" value="Dodaj">
-            </fieldset>
-        </form>
-
-        <button id="count" class="notDisplay">Podlicz</button>
-
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
         crossorigin="anonymous"></script>

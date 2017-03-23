@@ -1,5 +1,6 @@
 body {
-    background-color: lightgray;
+    background-color: #39393b;
+    color: #15f4ee;
 }
 
 .div-table {
@@ -36,4 +37,76 @@ body {
     width: 0%;
     height: 100%;
     background-color: red;
+}
+
+.edge {
+    margin: 20px;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+}
+
+
+.div-cell {
+    text-align: center;
+}
+
+input, .graph {
+    background-color: #3b444b;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+    color: #15f4ee;
+}
+
+input:focus {
+    background-color: gray;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+}
+
+input.graph:focus {
+    background-color: gray;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #3b444b;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+    color: #15f4ee;
+}
+
+label {
+    padding: 5px;
+}
+
+.main {
+    background-color: #39393b;
+    color: #15f4ee;
+    border: 2px solid #15f4ee;
+    border-radius: 10px;
+}
+
+a {
+    color: #15f4ee;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #15f4ee;
+    text-decoration: none;
+}
+
+a:active {
+    color: #15f4ee;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #15f4ee;
+}
+
+a:focus {
+    color: #15f4ee;
+    text-decoration: none;
 }
