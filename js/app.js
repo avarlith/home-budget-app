@@ -40,6 +40,15 @@ $(function () {
 
     createNewYearBtn.on('click', function (event) {
         event.preventDefault();
+
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
+
         var newRow = $('.notDisplay').find('.year').clone(true).addClass('y' + $(this).prev().val()).appendTo('.div-table');
 
         newRow.find('.div-cell').eq(0).text($(this).prev().val());
@@ -48,6 +57,15 @@ $(function () {
 
     createNewMonthBtn.on('click', function (event) {
         event.preventDefault();
+
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
+
         var newRow = $('.notDisplay').find('.month').clone(true).addClass('m' + $(this).prev().val()).appendTo('.div-table');
 
         newRow.find('.div-cell').eq(0).text($(this).prev().val());
@@ -56,6 +74,15 @@ $(function () {
 
     searchBtn.on('click', function (event) {
         event.preventDefault();
+
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
+
         var searchItem = $('#searchItem').val();
         var findItem = [];
         var sum = 0;
@@ -72,9 +99,12 @@ $(function () {
             sum += parseFloat(n);
         });
         console.log(sum);
-        var n = (parseFloat(sum)/parseFloat(summarySumOfExpence))*100;
+        var n = (parseFloat(sum) / parseFloat(summarySumOfExpence)) * 100;
         console.log(n);
-        $('.visual').css("width", n+"%");
+
+        $('.visual').animate({
+            width: n + "%"
+        }, 2000);
 
 
     });
@@ -82,6 +112,15 @@ $(function () {
     addBtns.eq(0).on('click', function (event) {
         console.log(addBtns);
         event.preventDefault();
+
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
+
         counter += 1;
         var nameCost = $(this).prev();
         var label = $('<label for="regular' + counter + '">' + nameCost.val() + '</label>');
@@ -100,6 +139,13 @@ $(function () {
     addBtns.eq(1).on('click', function (event) {
         console.log(addBtns);
         event.preventDefault();
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
         counter += 1;
         var nameCost = $(this).prev();
         var label = $('<label for="variant' + counter + '">' + nameCost.val() + '</label>');
@@ -117,6 +163,13 @@ $(function () {
 
     incomeSubmit.on('click', function (event) {
         event.preventDefault();
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
         var newObject = $('form[class="col-12 incomeForm"]').serializeArray();
         arrays.push(newObject);
         console.log(arrays);
@@ -131,6 +184,13 @@ $(function () {
 
     regularSubmit.on('click', function (event) {
         event.preventDefault();
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
         var newObject = $('form[class="col-12 regularExpence"]').serializeArray();
         arrays.push(newObject);
         console.log(arrays);
@@ -156,6 +216,13 @@ $(function () {
 
     variantSubmit.on('click', function (event) {
         event.preventDefault();
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
         arrays.push($('form[class="col-12 variantExpence"]').serializeArray());
 
         variantCosts = $('.variantExpence').find('input[type=number]');
@@ -181,6 +248,14 @@ $(function () {
     countBtn.on('click', function (event) {
         event.preventDefault();
 
+        $(this).animate({
+            opacity: 0.25
+        }, 500, function () {
+            $(this).animate({
+                opacity: 1
+            }, 500)
+        });
+        
         dataOfMonth = $('.div-table').find('.div-row').last().find('.div-cell');
         dataOfYear = $('.div-table').find('.div-row.year').last().find('.div-cell');
 
