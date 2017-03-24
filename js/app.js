@@ -117,7 +117,7 @@ $(function () {
 
     incomeSubmit.on('click', function (event) {
         event.preventDefault();
-        var newObject = $('form[class="incomeForm"]').serializeArray();
+        var newObject = $('form[class="col-12 incomeForm"]').serializeArray();
         arrays.push(newObject);
         console.log(arrays);
         dataOfMonth = $('.div-table').find('.div-row.month').last().find('.div-cell');
@@ -131,7 +131,7 @@ $(function () {
 
     regularSubmit.on('click', function (event) {
         event.preventDefault();
-        var newObject = $('form[class="regularExpence"]').serializeArray();
+        var newObject = $('form[class="col-12 regularExpence"]').serializeArray();
         arrays.push(newObject);
         console.log(arrays);
         regularCosts = $('.regularExpence').find('input[type="number"]');
@@ -156,7 +156,7 @@ $(function () {
 
     variantSubmit.on('click', function (event) {
         event.preventDefault();
-        arrays.push($('form[class="variantExpence"]').serializeArray());
+        arrays.push($('form[class="col-12 variantExpence"]').serializeArray());
 
         variantCosts = $('.variantExpence').find('input[type=number]');
 
@@ -203,10 +203,10 @@ $(function () {
 
         if (summaryRest > 0) {
             dataOfYear.eq(5).text('+' + summaryRest);
-            dataOfYear.eq(5).addClass('savings');
+            dataOfYear.eq(5).addClass('savings').removeClass('debit');
         } else {
             dataOfYear.eq(5).text(summaryRest);
-            dataOfYear.eq(5).addClass('debit');
+            dataOfYear.eq(5).addClass('debit').removeClass('savings');
         }
     });
 

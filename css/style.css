@@ -1,3 +1,9 @@
+.selector-for-some-widget {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 body {
     background-color: #39393b;
     color: #15f4ee;
@@ -40,7 +46,6 @@ body {
 }
 
 .edge {
-    margin: 20px;
     border: 2px solid #15f4ee;
     border-radius: 10px;
 }
