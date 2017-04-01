@@ -109,7 +109,7 @@ $(function () {
 
     });
 
-    addBtns.eq(0).on('click', function (event) {
+    addBtns.on('click', function (event) {
         console.log(addBtns);
         event.preventDefault();
 
@@ -121,37 +121,11 @@ $(function () {
             }, 500)
         });
 
-        counter += 1;
         var nameCost = $(this).prev();
-        var label = $('<label for="regular' + counter + '">' + nameCost.val() + '</label>');
-        var input = $('<input type="number" name="regular' + counter + '" id="regular' + counter + '" value="0.00">');
-        var button = $('<button class="removeExpence">Usuń wydatek</button>');
-        var newDiv = $('<div class="field-wrapper"></div>');
-
-        newDiv.append(label);
-        newDiv.append(input);
-        newDiv.append(button);
-        $(this).parent().before(newDiv);
-        nameCost.val('');
-
-    });
-
-    addBtns.eq(1).on('click', function (event) {
-        console.log(addBtns);
-        event.preventDefault();
-        $(this).animate({
-            opacity: 0.25
-        }, 500, function () {
-            $(this).animate({
-                opacity: 1
-            }, 500)
-        });
-        counter += 1;
-        var nameCost = $(this).prev();
-        var label = $('<label for="variant' + counter + '">' + nameCost.val() + '</label>');
-        var input = $('<input type="number" name="variant' + counter + '" id="variant' + counter + '" value="0.00">');
-        var button = $('<button class="removeExpence">Usuń wydatek</button>');
-        var newDiv = $('<div class="field-wrapper"></div>');
+        var label = $('<label for="' + nameCost.val() + '" class="col-3">' + nameCost.val() + '</label>');
+        var input = $('<input type="number" name="' + nameCost.val() + '" id="'+ nameCost.val() +'" class="col-8" value="0.00">');
+        var button = $('<button class="col-1 removeExpence">X</button>');
+        var newDiv = $('<div class="row"></div>');
 
         newDiv.append(label);
         newDiv.append(input);

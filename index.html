@@ -61,9 +61,9 @@
                         <div class="row">
                             <form class="col-12 create-new-year-row">
                                 <div class="row">
-                                    <label class="col">please enter year in format yyyy</label>
-                                    <input type="text" name="month" class="col edge">
-                                    <button id="create-new-year" class="col edge">create</button>
+                                    <label class="col-12 col-md-6">please enter year in format yyyy</label>
+                                    <input type="text" name="month" class="col-12 col-md-3 edge">
+                                    <button id="create-new-year" class="col-12 col-md-3 edge margin-md">create</button>
                                 </div>
                             </form>
                         </div>
@@ -83,9 +83,9 @@
                         <div class="row">
                             <form class="col-12 create-new-month-row">
                                 <div class="row">
-                                    <label class="col">please enter month in format mm</label>
-                                    <input type="text" name="month" class="col edge">
-                                    <button id="create-new-month" class="col edge">create</button>
+                                    <label class="col-12 col-md-6">please enter month in format mm</label>
+                                    <input type="text" name="month" class="col-12 col-md-3 edge">
+                                    <button id="create-new-month" class="col-12 col-md-3 edge margin-md">create</button>
                                 </div>
                             </form>
                         </div>
@@ -107,17 +107,17 @@
                                 <fieldset>
                                     <legend>income</legend>
                                     <div class="row">
-                                        <label class="col" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col year">
-                                        <label class="col" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col month">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
+                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
+                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
                                     <div class="row">
-                                        <label class="col-3" for="income">please enter monthly income:</label>
-                                        <input type="number" name="income" id="income" class="col-3" value="0.00">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="income">please enter monthly income:</label>
+                                        <input type="number" name="income" id="income" class="col-12 col-md-6 col-lg-2 col-xl-2" value="0.00">
                                     </div>
                                     <div class="row">
-                                        <input type="submit" id="incomeSubmit" class="col-md-4 offset-md-4" value="add">
+                                        <input type="submit" id="incomeSubmit" class="col-md-4 offset-md-4 margin-top" value="add">
                                     </div>
                                 </fieldset>
                             </form>
@@ -139,46 +139,44 @@
                                 <fieldset>
                                     <legend>regular expense (monthly)</legend>
                                     <div class="row">
-                                        <label class="col-3" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col-8 year">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
+                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
+                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
-                                    <div class="row">
-                                        <label class="col-3" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col-8 month">
-                                    </div>
-                                    <div class="row">
+                                    <div class="row margin-top">
                                         <label class="col-3" for="rent"> rent:</label>
-                                        <input type="number" name="rent" id="rent" class="col-8" value="0.00">
+                                        <input type="number" name="rent" id="rent" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="current">current:</label>
-                                        <input type="number" name="current" id="current" value="0.00" class="col-8">
+                                        <input type="number" name="current" id="current" value="0.00" class="col-6">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="gas">gas:</label>
-                                        <input type="number" name="gas" id="gas" class="col-8" value="0.00">
+                                        <input type="number" name="gas" id="gas" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="phone">phone</label>
-                                        <input type="number" name="phone" id="phone" class="col-8" value="0.00">
+                                        <input type="number" name="phone" id="phone" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="internet">Internet</label>
-                                        <input type="number" name="internet" id="internet" class="col-8" value="0.00">
+                                        <input type="number" name="internet" id="internet" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
-                                    <div class="row">
-                                        <span class="col-4">add another expence</span>
+                                    <div class="row margin-top">
+                                        <span class="col-12 col-md-4 col-lg-3">add another expence</span>
                                         <br>
-                                        <input type="text" name="newExpence" class="col-4">
-                                        <button class="col-4 addExpence">add expense</button>
+                                        <input type="text" name="newExpence" class="col-12 col-md-4 col-lg-3">
+                                        <button class="col-12 col-md-4 col-lg-3 addExpence">add expense</button>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" class="col-md-4 offset-md-4" id="regularSubmit" value="add">
+                                        <input type="submit" class="col-md-4 offset-md-4 margin-top" id="regularSubmit" value="add">
                                     </div>
                                 </fieldset>
                             </form>
@@ -190,7 +188,7 @@
             <div class="card main">
                 <div class="card-header main" role="tab" id="headingFive">
                     <h5 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">add wydatki zmienne</a>
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">add variant expense</a>
                     </h5>
                 </div>
                 <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
@@ -200,41 +198,39 @@
                                 <fieldset>
                                     <legend>variant expense</legend>
                                     <div class="row">
-                                        <label class="col-3" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col-8 year">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
+                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
+                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
-                                    <div class="row">
-                                        <label class="col-3" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col-8 month">
-                                    </div>
-                                    <div class="row">
+                                    <div class="row margin-top">
                                         <label class="col-3" for="food"> food:</label>
-                                        <input type="number" name="food" id="food" class="col-8" value="0.00">
+                                        <input type="number" name="food" id="food" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="clothes">clothes:</label>
-                                        <input type="number" name="clothes" id="clothes" class="col-8" value="0.00">
+                                        <input type="number" name="clothes" id="clothes" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="cosmetics">cosmetics:</label>
-                                        <input type="number" name="cosmetics" id="cosmetics" class="col-8" value="0.00">
+                                        <input type="number" name="cosmetics" id="cosmetics" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
                                     <div class="row">
                                         <label class="col-3" for="chemistry">chemistry:</label>
-                                        <input type="number" name="chemistry" id="chemistry" class="col-8" value="0.00">
+                                        <input type="number" name="chemistry" id="chemistry" class="col-6" value="0.00">
                                         <button class="col-1 removeExpence">X</button>
                                     </div>
-                                    <div class="row">
-                                        <span class="col-4">add add another expense</span>
+                                    <div class="row margin-top">
+                                        <span class="col-12 col-md-4 col-lg-3">add add another expense</span>
                                         <br>
-                                        <input type="text" name="newExpence" class="col-4">
-                                        <button class="col-4 addExpence">add expense</button>
+                                        <input type="text" name="newExpence" class="col-12 col-md-4 col-lg-3">
+                                        <button class="col-12 col-md-4 col-lg-3 addExpence">add expense</button>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" class="col-md-4 offset-md-4" id="variantSubmit" value="add">
+                                        <input type="submit" class="col-md-4 offset-md-4 margin-top" id="variantSubmit" value="add">
                                     </div>
                                 </fieldset>
                             </form>
@@ -296,15 +292,17 @@
                         <div class="row">
                             <div class="col-12 visual-result">
                                 <div class="row">
-                                    <span class="col">visual representation of individual expenses</span>
-                                    <div class="col panel edge">
+                                    <span class="col-12 col-md-6 col-lg-4">visual representation of individual expenses</span>
+                                    <div class="col-12 col-md-6 panel edge">
                                         <div class="visual"></div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col">please enter sort of expense</label>
-                                    <input type="text" name="searchItem" id="searchItem" class="col">
-                                    <button id="resultVisualization" class="col">show</button>
+                                    <label class="col-12 col-md-6 col-lg-4">please enter kind of expense</label>
+                                    <input type="text" name="searchItem" id="searchItem" class="col-12 col-md-6">
+                                </div>
+                                <div class="row margin-top">
+                                    <button id="resultVisualization" class="col-md-4 offset-md-4 edge">show</button>
                                 </div>
 
                             </div>

@@ -19,7 +19,8 @@ body {
 
 .div-cell {
     display: table-cell;
-    width: 16%;
+    width: 16vw;
+    font-size: 1rem;
 }
 
 .savings {
@@ -117,6 +118,23 @@ a:focus {
     color: #15f4ee;
     text-decoration: none;
 }
+
+.margin-top {
+        margin-top: 20px;
+    }
+
+@media (max-width: 768px) {
+    .margin-md {
+        margin-top: 20px;
+    }
+}
+/*
+@media (min-width: 992px) {
+    .to-right {
+    text-align: right;
+    }
+}
+*/
 
 @keyframes pulse {
     0%{
