@@ -16,21 +16,21 @@
 
 <body>
     <div class='notDisplay'>
-        <div class="row div-row month">
-            <div class="col div-cell edge"></div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
+        <div class="row month">
+            <div class="col-3 col-sm-2 edge"></div>
+            <div class="col-sm-2 edge no-mini">0.00</div>
+            <div class="col-sm-2 edge no-mini">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
         </div>
-        <div class="row div-row year">
-            <div class="col div-cell edge"> <button class="show-hide">-</button></div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
-            <div class="col div-cell edge">0.00</div>
+        <div class="row year">
+            <div class="col-3 col-sm-2 edge"></div>
+            <div class="col-sm-2 edge no-mini">0.00</div>
+            <div class="col-sm-2 edge no-mini">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
+            <div class="col-3 col-sm-2 edge">0.00</div>
         </div>
     </div>
 
@@ -45,9 +45,61 @@
     </div>
 
     <div class="container">
-
+        <div class="edge">
+            <div class="card-header main">
+                <h5 class="mb-0">
+                    <a class="collapsed">settlement</a>
+                </h5>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-12 tabular-result">
+                        <div class="settlement">
+                            <div class="row header">
+                                <div class="col-3 col-sm-2 edge"> year / month</div>
+                                <div class="col-sm-2 edge no-mini"> regular expenses </div>
+                                <div class="col-sm-2 edge no-mini"> variant expenses </div>
+                                <div class="col-3 col-sm-2 edge"> all expenses </div>
+                                <div class="col-3 col-sm-2 edge"> income </div>
+                                <div class="col-3 col-sm-2 edge"> balance </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="accordion" role="tablist" aria-multiselectable="true">
+
+            <div class="card main">
+                <div class="card-header main" role="tab" id="headingSix">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">visual representation of individual expenses</a>
+                    </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-12 visual-result">
+                                <div class="row">
+                                    <span class="col-12 col-md-6 col-lg-4">visual representation of individual expenses</span>
+                                    <div class="col-12 col-md-6 panel edge">
+                                        <div class="visual"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-12 col-md-6 col-lg-4">please enter kind of expense</label>
+                                    <input type="text" name="searchItem" id="searchItem" class="col-12 col-md-6">
+                                </div>
+                                <div class="row margin-top">
+                                    <button id="resultVisualization" class="col-md-4 offset-md-4 edge">show</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="card main">
                 <div class="card-header main" role="tab" id="headingOne">
@@ -234,78 +286,6 @@
                                     </div>
                                 </fieldset>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card main">
-                <div class="card-header main" role="tab" id="headingSix">
-                    <h5 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">calculate your expenses</a>
-                    </h5>
-                </div>
-                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
-                    <div class="card-block">
-                        <div class="row">
-                            <button id="count" class="col-md-4 offset-md-4 edge">calculate</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card main">
-                <div class="card-header main" role="tab" id="headingSeven">
-                    <h5 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">see settlement</a>
-                    </h5>
-                </div>
-                <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
-                    <div class="card-block">
-
-                        <div class="row">
-                            <div class="col-12 tabular-result">
-                                <div class="div-table">
-                                    <div class="row div-row header">
-                                        <div class="col-2 div-cell edge"> year / month</div>
-                                        <div class="col-2 div-cell edge"> regular expenses </div>
-                                        <div class="col-2 div-cell edge"> variant expenses </div>
-                                        <div class="col-2 div-cell edge"> all expenses </div>
-                                        <div class="col-2 div-cell edge"> dochód </div>
-                                        <div class="col-2 div-cell edge"> saldo </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card main">
-                <div class="card-header main" role="tab" id="headingEight">
-                    <h5 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">visual representation of individual expenses</a>
-                    </h5>
-                </div>
-                <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col-12 visual-result">
-                                <div class="row">
-                                    <span class="col-12 col-md-6 col-lg-4">visual representation of individual expenses</span>
-                                    <div class="col-12 col-md-6 panel edge">
-                                        <div class="visual"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-12 col-md-6 col-lg-4">please enter kind of expense</label>
-                                    <input type="text" name="searchItem" id="searchItem" class="col-12 col-md-6">
-                                </div>
-                                <div class="row margin-top">
-                                    <button id="resultVisualization" class="col-md-4 offset-md-4 edge">show</button>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>

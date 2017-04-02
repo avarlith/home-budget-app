@@ -123,6 +123,12 @@ a:focus {
         margin-top: 20px;
     }
 
+@media (max-width: 576px) {
+    .no-mini {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .margin-md {
         margin-top: 20px;
