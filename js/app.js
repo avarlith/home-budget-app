@@ -52,14 +52,14 @@ $(function () {
         dataOfMonth = $('.settlement').find('.month').last().find('div');
         dataOfYear = $('.settlement').find('.year').last().find('div');
 
-        var sumOfExpence = parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text());
-        summarySumOfExpence = parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text());
+        var sumOfExpence = (parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text())).toFixed(2);
+        summarySumOfExpence = (parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text())).toFixed(2);
 
         dataOfMonth.eq(3).text(sumOfExpence);
         dataOfYear.eq(3).text(summarySumOfExpence);
 
-        var rest = parseFloat(dataOfMonth.eq(4).text()) - sumOfExpence;
-        var summaryRest = parseFloat(dataOfYear.eq(4).text()) - summarySumOfExpence;
+        var rest = (parseFloat(dataOfMonth.eq(4).text()) - sumOfExpence).toFixed(2);
+        var summaryRest = (parseFloat(dataOfYear.eq(4).text()) - summarySumOfExpence).toFixed(2);
 
         if (rest > 0) {
             dataOfMonth.eq(5).text('+' + rest);
@@ -122,6 +122,7 @@ $(function () {
         });
         console.log(sum);
         var n = (parseFloat(sum) / parseFloat(summarySumOfExpence)) * 100;
+        console.log(summarySumOfExpence);
         console.log(n);
 
         $('.visual').animate({
@@ -165,7 +166,9 @@ $(function () {
         summaryIncome += parseFloat(income.val());
 
         dataOfMonth.eq(4).text(parseFloat(income.val()));
-        dataOfYear.eq(4).text(summaryIncome);
+        dataOfYear.eq(4).text(summaryIncome.toFixed(2));
+        
+        calculate();
     });
 
     regularSubmit.on('click', function (event) {
@@ -191,8 +194,8 @@ $(function () {
         dataOfMonth = $('.settlement').find('.month').last().find('div');
         dataOfYear = $('.settlement').find('.year').last().find('div');
 
-        dataOfMonth.eq(1).text(regularExpence);
-        dataOfYear.eq(1).text(summaryRegularExpence);
+        dataOfMonth.eq(1).text(regularExpence.toFixed(2));
+        dataOfYear.eq(1).text(summaryRegularExpence.toFixed(2));
         regularExpence = 0;
 
         calculate();
@@ -220,8 +223,8 @@ $(function () {
         dataOfMonth = $('.settlement').find('.month').last().find('div');
         dataOfYear = $('.settlement').find('.year').last().find('div');
 
-        dataOfMonth.eq(2).text(variantExpence);
-        dataOfYear.eq(2).text(summaryVariantExpence);
+        dataOfMonth.eq(2).text(variantExpence.toFixed(2));
+        dataOfYear.eq(2).text(summaryVariantExpence.toFixed(2));
         variantExpence = 0;
 
         calculate();
