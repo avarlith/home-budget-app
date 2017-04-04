@@ -114,7 +114,7 @@
                             <form class="col-12 create-new-year-row">
                                 <div class="row">
                                     <label class="col-12 col-md-6">please enter year in format yyyy</label>
-                                    <input type="text" name="month" class="col-12 col-md-3 edge">
+                                    <input type="text" name="month" maxlength="4" class="col-12 col-md-3 edge">
                                     <button id="create-new-year" class="col-12 col-md-3 edge margin-md">create</button>
                                 </div>
                             </form>
@@ -136,7 +136,7 @@
                             <form class="col-12 create-new-month-row">
                                 <div class="row">
                                     <label class="col-12 col-md-6">please enter month in format mm</label>
-                                    <input type="text" name="month" class="col-12 col-md-3 edge">
+                                    <input type="text" name="month" maxlength="2" class="col-12 col-md-3 edge">
                                     <button id="create-new-month" class="col-12 col-md-3 edge margin-md">create</button>
                                 </div>
                             </form>
@@ -160,9 +160,9 @@
                                     <legend>income</legend>
                                     <div class="row">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <input type="text" name="year" maxlength="4" class="col-12 col-md-6 col-lg-2 year">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
+                                        <input type="text" name="month" maxlength="2" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
                                     <div class="row">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="income">please enter monthly income:</label>
@@ -192,9 +192,9 @@
                                     <legend>regular expense (monthly)</legend>
                                     <div class="row">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <input type="text" name="year" maxlength="4" class="col-12 col-md-6 col-lg-2 year">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
+                                        <input type="text" name="month" maxlength="2" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
                                     <div class="row margin-top">
                                         <label class="col-3" for="rent"> rent:</label>
@@ -251,9 +251,9 @@
                                     <legend>variant expense</legend>
                                     <div class="row">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="year">please enter year in format yyyy:</label>
-                                        <input type="text" name="year" class="col-12 col-md-6 col-lg-2 year">
+                                        <input type="text" name="year" maxlength="4" required class="col-12 col-md-6 col-lg-2 year">
                                         <label class="col-12 col-md-6 col-lg-4 col-xl-3" for="month">please enter month in format mm:</label>
-                                        <input type="text" name="month" class="col-12 col-md-6 col-lg-2 month">
+                                        <input type="text" name="month" maxlength="2" class="col-12 col-md-6 col-lg-2 month">
                                     </div>
                                     <div class="row margin-top">
                                         <label class="col-3" for="food"> food:</label>
