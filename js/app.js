@@ -1,14 +1,16 @@
 $(function () {
+    // get tabular result from localStorage
     var results = $('#results');
-    if (localStorage.getItem("#results")) {
-        results.html(localStorage.getItem("#results"));
+    if (localStorage.getItem('#results')) {
+        results.html(localStorage.getItem('#results'));
     };
-
+    // get individual expenses from localStorage
     var arrays = [];
-    if (localStorage.getItem("arrays")) {
-        arrays = JSON.parse(localStorage.getItem("arrays"));
+    if (localStorage.getItem('arrays')) {
+        arrays = JSON.parse(localStorage.getItem('arrays'));
     };
 
+    // variables
     var income = $('#income');
     var summaryIncome = 0;
 
@@ -43,9 +45,11 @@ $(function () {
     var dataOfMonth = 0;
     var dataOfYear = 0;
 
+    // variables for validation
     var regExpNum = /^[0-9]+$/;
     var regExpChar = /^[a-zA-Z\s]*$/;
 
+    // validation
     function isValidYear(input) {
         if (input.val().length == 4 && regExpNum.test(input.val())) {
             return true;
@@ -85,6 +89,7 @@ $(function () {
         }
     }
 
+    // animation of pressing buttons
     function animateBtn(btn) {
         btn.animate({
             opacity: 0.25
@@ -95,9 +100,10 @@ $(function () {
         });
     }
 
+    // calculate for tabular results
     function calculate() {
-        dataOfMonth = $('.settlement').find('.month').last().find('div');
-        dataOfYear = $('.settlement').find('.year').last().find('div');
+        var dataOfMonth = $('.settlement').find('.month').last().find('div');
+        var dataOfYear = $('.settlement').find('.year').last().find('div');
 
         var sumOfExpense = (parseFloat(dataOfMonth.eq(1).text()) + parseFloat(dataOfMonth.eq(2).text())).toFixed(2);
         summarySumOfExpense = (parseFloat(dataOfYear.eq(1).text()) + parseFloat(dataOfYear.eq(2).text())).toFixed(2);
@@ -122,13 +128,13 @@ $(function () {
         } else {
             dataOfYear.eq(5).text(summaryRest);
             dataOfYear.eq(5).addClass('debit').removeClass('savings');
-        }
-        localStorage.setItem("#results", results.html());
-        localStorage.setItem("arrays", JSON.stringify(arrays));
-    }
+        };
 
+        localStorage.setItem('#results', results.html());
+        localStorage.setItem('arrays', JSON.stringify(arrays));
+    };
 
-
+    // create row for year
     createNewYearBtn.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
@@ -139,9 +145,9 @@ $(function () {
             var newRow = $('.notDisplay').find('.year').clone(true).addClass('y' + $(this).prev().val()).appendTo('.settlement');
             newRow.find('div').eq(0).text($(this).prev().val());
         }
-
     });
 
+    // create row for month
     createNewMonthBtn.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
@@ -152,9 +158,9 @@ $(function () {
             var newRow = $('.notDisplay').find('.month').clone(true).addClass('m' + $(this).prev().val()).appendTo('.settlement');
             newRow.find('div').eq(0).text($(this).prev().val());
         }
-
     });
 
+    // visual representation of individual expenses
     searchBtn.on('click', function (event) {
         event.preventDefault();
 
@@ -186,18 +192,19 @@ $(function () {
             width: n + "%"
         }, 2000);
 
-
     });
 
+    // create new kind of expense
     addBtns.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
 
         var nameCost = $(this).prev();
         var validNewExpense = isValidNewExpense(nameCost);
+
         if (validNewExpense) {
             nameCost.css('background-color', '#3b444b');
-            var nameCostValue = nameCost.val().replace(/\s/g, "-");
+            var nameCostValue = nameCost.val().replace(/\s/g, '-');
             var label = $('<label for="' + nameCostValue + '" class="col-3">' + nameCostValue + '</label>');
             var input = $('<input type="number" name="' + nameCostValue + '" id="' + nameCostValue + '" class="col-6" value="0.00">');
             var button = $('<button class="col-1 removeExpense">X</button>');
@@ -208,10 +215,10 @@ $(function () {
             newDiv.append(button);
             $(this).parent().before(newDiv);
             nameCost.val('');
-        }
-
+        };
     });
 
+    // adding income to tabular results
     incomeSubmit.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
@@ -219,28 +226,32 @@ $(function () {
         var inputYear = $('form[class="col-12 incomeForm"]').find('.year');
         var inputMonth = $('form[class="col-12 incomeForm"]').find('.month');
         var cost = $('form[class="col-12 incomeForm"]').find('input[type=number]');
-
         var validYearMonthCost = isValidYear(inputYear) && isValidMonth(inputMonth) && isValidCost(cost);
+
         if (validYearMonthCost) {
             inputMonth.css('background-color', '#3b444b');
             inputYear.css('background-color', '#3b444b');
             cost.css('background-color', '#3b444b');
-            arrays.push( $('form[class="col-12 incomeForm"]').serializeArray());
+
+            arrays.push($('form[class="col-12 incomeForm"]').serializeArray());
             console.log(arrays);
-            dataOfMonth = $('.settlement').find('.month').last().find('div');
-            dataOfYear = $('.settlement').find('.year').last().find('div');
+
+            var dataOfMonth = $('.settlement').find('.month').last().find('div');
+            var dataOfYear = $('.settlement').find('.year').last().find('div');
 
             summaryIncome += parseFloat(income.val());
 
             dataOfMonth.eq(4).text(parseFloat(income.val()).toFixed(2));
             dataOfYear.eq(4).text(summaryIncome.toFixed(2));
             income.val('0.00');
+            inputMonth.val('');
+            inputYear.val('');
 
             calculate();
-        }
-
+        };
     });
 
+    // adding sum of regular expenses to tabular results
     regularSubmit.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
@@ -249,7 +260,7 @@ $(function () {
         var inputMonth = $('form[class="col-12 regularExpense"]').find('.month');
         var validYearMonth = isValidYear(inputYear) && isValidMonth(inputMonth);
 
-        var regularCosts = $('.regularExpense').find('input[type="number"]');
+        regularCosts = $('.regularExpense').find('input[type="number"]');
         var validCost = false;
         regularCosts.each(function () {
             return validCost = isValidCost($(this));
@@ -262,10 +273,7 @@ $(function () {
                 $(this).css('background-color', '#3b444b');
             });
 
-            var newObject = $('form[class="col-12 regularExpense"]').serializeArray();
-            arrays.push(newObject);
-            console.log(arrays);
-
+            arrays.push($('form[class="col-12 regularExpense"]').serializeArray());
 
             regularCosts.each(function () {
                 regularExpense += parseFloat($(this).val());
@@ -276,18 +284,21 @@ $(function () {
             regularCosts.each(function () {
                 $(this).val('0.00');
             });
+            inputMonth.val('');
+            inputYear.val('');
 
-            dataOfMonth = $('.settlement').find('.month').last().find('div');
-            dataOfYear = $('.settlement').find('.year').last().find('div');
+            var dataOfMonth = $('.settlement').find('.month').last().find('div');
+            var dataOfYear = $('.settlement').find('.year').last().find('div');
 
             dataOfMonth.eq(1).text(regularExpense.toFixed(2));
             dataOfYear.eq(1).text(summaryRegularExpense.toFixed(2));
             regularExpense = 0;
 
             calculate();
-        }
+        };
     });
 
+    // adding sum of regular expenses to tabular results
     variantSubmit.on('click', function (event) {
         event.preventDefault();
         animateBtn($(this));
@@ -296,7 +307,7 @@ $(function () {
         var inputMonth = $('form[class="col-12 variantExpense"]').find('.month');
         var validYearMonth = isValidYear(inputYear) && isValidMonth(inputMonth);
 
-        var variantCosts = $('.variantExpense').find('input[type=number]');
+        variantCosts = $('.variantExpense').find('input[type=number]');
         var validCost = false;
         variantCosts.each(function () {
             return validCost = isValidCost($(this));
@@ -320,6 +331,8 @@ $(function () {
             variantCosts.each(function () {
                 $(this).val('0.00');
             });
+            inputMonth.val('');
+            inputYear.val('');
 
             dataOfMonth = $('.settlement').find('.month').last().find('div');
             dataOfYear = $('.settlement').find('.year').last().find('div');
@@ -329,7 +342,7 @@ $(function () {
             variantExpense = 0;
 
             calculate();
-        }
+        };
     });
 
 });
