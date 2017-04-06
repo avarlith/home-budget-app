@@ -1,8 +1,12 @@
 $(function () {
     var results = $('#results');
-    var arrays = [];
     if (localStorage.getItem("#results")) {
         results.html(localStorage.getItem("#results"));
+    };
+
+    var arrays = [];
+    if (localStorage.getItem("arrays")) {
+        arrays = JSON.parse(localStorage.getItem("arrays"));
     };
 
     var income = $('#income');
@@ -120,6 +124,7 @@ $(function () {
             dataOfYear.eq(5).addClass('debit').removeClass('savings');
         }
         localStorage.setItem("#results", results.html());
+        localStorage.setItem("arrays", JSON.stringify(arrays));
     }
 
 
@@ -158,6 +163,7 @@ $(function () {
         var searchItem = $('#searchItem').val();
         var findItem = [];
         var sum = 0;
+        var allExpenses = $('#results').find('.all').text();
 
         for (i = 0; i < arrays.length; i++) {
             $.map(arrays[i], function (value, key) {
@@ -172,7 +178,7 @@ $(function () {
             sum += parseFloat(n);
         });
         console.log(sum);
-        var n = (parseFloat(sum) / parseFloat(summarySumOfExpense)) * 100;
+        var n = (parseFloat(sum) / parseFloat(allExpenses)) * 100;
         console.log(summarySumOfExpense);
         console.log(n);
 
@@ -219,8 +225,7 @@ $(function () {
             inputMonth.css('background-color', '#3b444b');
             inputYear.css('background-color', '#3b444b');
             cost.css('background-color', '#3b444b');
-            var newObject = $('form[class="col-12 incomeForm"]').serializeArray();
-            arrays.push(newObject);
+            arrays.push( $('form[class="col-12 incomeForm"]').serializeArray());
             console.log(arrays);
             dataOfMonth = $('.settlement').find('.month').last().find('div');
             dataOfYear = $('.settlement').find('.year').last().find('div');
