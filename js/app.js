@@ -1,6 +1,9 @@
 $(function () {
-
+    var results = $('#results');
     var arrays = [];
+    if (localStorage.getItem("#results")) {
+        results.html(localStorage.getItem("#results"));
+    };
 
     var income = $('#income');
     var summaryIncome = 0;
@@ -101,7 +104,7 @@ $(function () {
         var rest = (parseFloat(dataOfMonth.eq(4).text()) - sumOfExpense).toFixed(2);
         var summaryRest = (parseFloat(dataOfYear.eq(4).text()) - summarySumOfExpense).toFixed(2);
 
-        if (rest > 0) {
+        if (rest > -1) {
             dataOfMonth.eq(5).text('+' + rest);
             dataOfMonth.eq(5).addClass('savings').removeClass('debit');
         } else {
@@ -109,13 +112,14 @@ $(function () {
             dataOfMonth.eq(5).addClass('debit').removeClass('savings');
         }
 
-        if (summaryRest > 0) {
+        if (summaryRest > -1) {
             dataOfYear.eq(5).text('+' + summaryRest);
             dataOfYear.eq(5).addClass('savings').removeClass('debit');
         } else {
             dataOfYear.eq(5).text(summaryRest);
             dataOfYear.eq(5).addClass('debit').removeClass('savings');
         }
+        localStorage.setItem("#results", results.html());
     }
 
 
@@ -238,18 +242,25 @@ $(function () {
 
         var inputYear = $('form[class="col-12 regularExpense"]').find('.year');
         var inputMonth = $('form[class="col-12 regularExpense"]').find('.month');
-        var regularCosts = $('.regularExpense').find('input[type="number"]');
-
         var validYearMonth = isValidYear(inputYear) && isValidMonth(inputMonth);
 
-        if (validYearMonth) {
+        var regularCosts = $('.regularExpense').find('input[type="number"]');
+        var validCost = false;
+        regularCosts.each(function () {
+            return validCost = isValidCost($(this));
+        })
+
+        if (validYearMonth && validCost) {
             inputMonth.css('background-color', '#3b444b');
             inputYear.css('background-color', '#3b444b');
+            regularCosts.each(function () {
+                $(this).css('background-color', '#3b444b');
+            });
 
             var newObject = $('form[class="col-12 regularExpense"]').serializeArray();
             arrays.push(newObject);
             console.log(arrays);
-            
+
 
             regularCosts.each(function () {
                 regularExpense += parseFloat($(this).val());
@@ -278,16 +289,22 @@ $(function () {
 
         var inputYear = $('form[class="col-12 variantExpense"]').find('.year');
         var inputMonth = $('form[class="col-12 variantExpense"]').find('.month');
-
         var validYearMonth = isValidYear(inputYear) && isValidMonth(inputMonth);
 
-        if (validYearMonth) {
+        var variantCosts = $('.variantExpense').find('input[type=number]');
+        var validCost = false;
+        variantCosts.each(function () {
+            return validCost = isValidCost($(this));
+        })
+
+        if (validYearMonth && validCost) {
             inputMonth.css('background-color', '#3b444b');
             inputYear.css('background-color', '#3b444b');
+            variantCosts.each(function () {
+                $(this).css('background-color', '#3b444b');
+            });
 
             arrays.push($('form[class="col-12 variantExpense"]').serializeArray());
-
-            variantCosts = $('.variantExpense').find('input[type=number]');
 
             variantCosts.each(function () {
                 variantExpense += parseFloat($(this).val());
